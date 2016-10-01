@@ -1,4 +1,6 @@
 class ProductsController < RankingController
+before_action :authenticate_user!, only: :search
+
   def index
     @products = Product.limit(20).order('id ASC')# productsテーブルから最新順に作品を２０件取得する,モデル名.limit(取得件数)
   end
