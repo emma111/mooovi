@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
    validates :nickname, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :reviews
+  
   has_attached_file :avatar,
                       styles:  { medium: "300x300#", thumb: "100x100#" }
                       #aサイズを指定するための属性はstylesです。stylesではどのような種類の画像をどの大きさで保存するか指定。vatarカラムにアップ可能な画像の大きさを指定
